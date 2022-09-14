@@ -34,6 +34,11 @@ module.exports =
                 let responseObj = { error: "opération inexistante"};
                 this.HttpContext.response.JSON(responseObj);   
             }
+            else if(this.HttpContext.path.params.x > Number.MAX_VALUE || this.HttpContext.path.params.y > Number.MAX_VALUE || this.HttpContext.path.params.n > Number.MAX_VALUE)
+            {
+                let responseObj = { error: "Chiffre au-delà du maximum"};
+                this.HttpContext.response.JSON(responseObj);   
+            }
             else
             {
                 if(this.HttpContext.path.params.op)
